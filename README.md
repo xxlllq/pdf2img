@@ -3,6 +3,7 @@
 
 * 工具在线[网址](https://xxlllq.github.io/pdf2img)
 <div align=center><img width="100%" height="auto"src="https://github.com/xxlllq/pdf2img/blob/master/img/pdf2img.jpg" alt="PDF To Image" title="PDF To Image"/></div>
+<div align=center><img width="100%" height="auto"src="https://github.com/xxlllq/pdf2img/blob/master/img/result.jpg" alt="结果" title="结果"/></div>
 
 * 页面样式模板[来源](https://codepen.io/roydigerhund/pen/OMreoV).
 
