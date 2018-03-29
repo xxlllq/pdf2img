@@ -10,4 +10,4 @@
 
 * 保证效率，文档大小上限为10M
 
-* 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、FileSaver.js(https://github.com/eligrey/FileSaver.js/)
+* 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、[FileSaver.js](https://github.com/eligrey/FileSaver.js/)
