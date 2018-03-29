@@ -9,3 +9,5 @@
 * 操作步骤(<选择文件><--文档上传完成--><导出图片>)
 
 * 保证效率，文档大小上限为10M
+
+* 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、FileSaver.js(https://github.com/eligrey/FileSaver.js/)
