@@ -22,8 +22,8 @@
 						</div>
 					</a>
 
-					<div class="name">PDF To Images</div>
-					<div class="job">pdf size
+					<div class="name">PDF转图片</div>
+					<div class="job">文档大小
 						< 10Mb</div>
 
 							<div class="actions">
@@ -36,15 +36,15 @@
 
 					<div class="stats">
 						<div class="box">
-							<span class="value">Name</span>
+							<span class="value">名称</span>
 							<span class="parameter" id="pdfName"></span>
 						</div>
 						<div class="box">
-							<span class="value">Size</span>
+							<span class="value">大小</span>
 							<span class="parameter" id="sizeText"></span>
 						</div>
 						<div class="box">
-							<span class="value">Pages</span>
+							<span class="value">页数</span>
 							<span class="parameter" id="pagesText"></span>
 						</div>
 					</div>
@@ -65,6 +65,7 @@
 				$('#pdf').change(function() {
 					var pdfFileURL = $('#pdf').val();
 					if(pdfFileURL) {
+						$("#imgDiv").empty();//清空上一PDF文件展示图
 						var files = $('#pdf').prop('files'); //获取到文件
 						var fileSize = files[0].size;
 						var mb;
