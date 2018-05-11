@@ -12,4 +12,4 @@
 
 * 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、[FileSaver.js](https://github.com/eligrey/FileSaver.js/)
 
-* 没有兼容所有浏览器
+* 请使用主流浏览器，如Chrome……
