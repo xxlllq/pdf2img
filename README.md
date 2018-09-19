@@ -4,7 +4,7 @@
 * 在线[Demo](https://xxlllq.github.io/pdf2img)
 <kbd>
   <div style="border: 1px solid gainsboro;border-radius: 5px;" align="center">
-    <img width="80%" height="auto" src="https://github.com/xxlllq/pdf2img/blob/master/img/pdf2img.gif" alt="PDF To Image" title="PDF To Image"/>
+    <img width="80%" height="auto" src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/pdf2img.gif" alt="PDF To Image" title="PDF To Image"/>
   </div>
 </kbd>
 
