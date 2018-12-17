@@ -29,33 +29,5 @@ table th:first-of-type {
 Chrome  |  FireFox |  Safari |  IE
 :------:|:------:|:------:|:------:
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
-last |  last |  last |  10+
+　last 　|  　last　 |  　last　 |  　10+　
  
- <style> 
-table th:first-of-type {
-    width: 200px;
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Chrome</th>
-<th style="text-align:center">FireFox</th>
-<th style="text-align:center">Safari</th>
-<th style="text-align:center">IE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png" alt=""></td>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png" alt=""></td>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png" alt=""></td>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png" alt=""></td>
-</tr>
-<tr>
-<td style="text-align:center">last</td>
-<td style="text-align:center">last</td>
-<td style="text-align:center">last</td>
-<td style="text-align:center">9+</td>
-</tr>
