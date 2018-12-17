@@ -21,7 +21,7 @@
 
 
 <style>
-table th {
+table th:first-of-type {
     width: 200px;
 }
 </style>
