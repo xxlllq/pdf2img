@@ -18,16 +18,8 @@
 
 * 浏览器（建议Chrome）
 
-
-
-<style>
-table th:first-of-type {
-    width: 200px;
-}
-</style> 
-
 Chrome  |  FireFox |  Safari |  IE
 :------:|:------:|:------:|:------:
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
-  　　　　last  　　　　|  　　　　last  　　　　|  　　　　last  　　　　|  　　　　10+　  　　　　
+  　　　　　last  　　　　　|  　　　　　last  　　　　　|  　　　　　last　  　　　　|  　　　　　10+　  　　　　　
  
