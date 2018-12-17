@@ -18,11 +18,15 @@
 
 * 浏览器（建议Chrome）
 
+
+
 <style>
 table th {
     width: 200px;
 }
 </style>
+
+
 
 Chrome  |  FireFox |  Safari |  IE
 :------:|:------:|:------:|:------:
