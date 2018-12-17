@@ -39,8 +39,7 @@ Header | header
 ------ | -----
 Bar | bar
 
-</div>
-CSS:
+</div> 
 
 .foo table {
   styles...
