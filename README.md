@@ -16,9 +16,9 @@
 
 * 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、[FileSaver.js](https://github.com/eligrey/FileSaver.js/)
 
-* 浏览器
+* 浏览器（建议Chrome）
 
 Chrome  |  FireFox |  Safari |  IE
 :------:|:------:|:------:|:------:
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
-last |  last |  last |  9+
+last |  last |  last |  10+
