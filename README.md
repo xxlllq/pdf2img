@@ -24,23 +24,10 @@
 table th:first-of-type {
     width: 200px;
 }
-</style>
-
-
+</style> 
 
 Chrome  |  FireFox |  Safari |  IE
 :------:|:------:|:------:|:------:
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
 last |  last |  last |  10+
-
-<div class="foo">
-
-Header | header
------- | -----
-Bar | bar
-
-</div> 
-
-.foo table {
-  styles...
-}
+ 
