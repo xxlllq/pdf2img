@@ -18,7 +18,7 @@
 
 * 浏览器（建议Chrome）
 
-Chrome  |  FireFox |  Safari |  IE
+Chrome  |  Firefox |  Safari |  IE
 :------:|:------:|:------:|:------:
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
   　　　　　last  　　　　　|  　　　　　last  　　　　　|  　　　　　last　  　　　　|  　　　　　10+　  　　　　
