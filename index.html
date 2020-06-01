@@ -108,6 +108,8 @@
 								data: myData
 							};
 							var typedarray = new Uint8Array(this.result);
+							PDFJS.cMapUrl = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/';
+							PDFJS.cMapPacked = true;
 							PDFJS.getDocument(typedarray).then(function(pdf) { //PDF转换为canvas
 								$("#imgDiv").css("border", "0"); //清除文本、边框
 								if(pdf) {
