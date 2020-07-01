@@ -12,7 +12,7 @@
 
 * 操作步骤(选择文件-->文档上传完成-->导出图片)
 
-* 文档大小上限为10M
+* 文档大小建议不超过10M，因为文件越大处理过程越慢。可通过修改index.html中的【if(mb > 10)】改变文件大小限制。
 
 * 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、[FileSaver.js](https://github.com/eligrey/FileSaver.js/)
 
