@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<script>
-	var _hmt = _hmt || [];
+		var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
 	  hm.src = "https://hm.baidu.com/hm.js?e495c059c321f94f833a194c3dc8c87c";
@@ -12,7 +12,7 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118964508-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
+		window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
@@ -25,7 +25,7 @@
 		<title>Convert PDF To Image</title>
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/mian.css" />
-		
+
 	</head>
 
 	<body>
@@ -42,127 +42,160 @@
 
 					<div class="name">PDF转图片</div>
 					<div class="job">文档大小
-						< 10Mb</div>
-							<div class="actions">
-								<a href="javascript:;" class="btn file">Choose Pdf
-									<input id='pdf' type='file' accept="application/pdf">
-								</a>
-								<button class="btn" id="export">Export Image</button>
-								<a style="display:block;margin-left:40px;"><iframe src="https://ghbtns.com/github-btn.html?user=xxlllq&amp;repo=pdf2img&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe></a>
-							</div>
+						< 10Mb</div> <div class="actions">
+							<a href="javascript:;" class="btn file">Choose Pdf
+								<input id='pdf' type='file' accept="application/pdf">
+							</a>
+							<button class="btn" id="export">Export Image</button>
+							<a style="display:block;margin-left:40px;"><iframe src="https://ghbtns.com/github-btn.html?user=xxlllq&amp;repo=pdf2img&amp;type=star&amp;count=true&amp;size=large"
+								 frameborder="0" scrolling="0" width="170px" height="30px"></iframe></a>
 					</div>
+				</div>
 
-					<div class="stats">
-						<div class="box">
-							<span class="value">名称</span>
-							<span class="parameter" id="pdfName"></span>
-						</div>
-						<div class="box">
-							<span class="value">大小</span>
-							<span class="parameter" id="sizeText"></span>
-						</div>
-						<div class="box">
-							<span class="value">页数</span>
-							<span class="parameter" id="pagesText"></span>
-						</div>
+				<div class="stats">
+					<div class="box">
+						<span class="value">名称</span>
+						<span class="parameter" id="pdfName"></span>
+					</div>
+					<div class="box">
+						<span class="value">大小</span>
+						<span class="parameter" id="sizeText"></span>
+					</div>
+					<div class="box">
+						<span class="value">页数</span>
+						<span class="parameter" id="pagesText"></span>
+					</div>
+					<div class="box">
+						<span class="value all">导出整图</span>
+						<input type="checkbox" id="allInOnPicture" />
+						<span class="value all small">少于20张效果较好</span>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div id="imgDiv">
-			</div>
-			<script type="text/javascript" src="js/jszip.min.js"></script>
-			<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-			<script type="text/javascript" src="js/FileSaver.js"></script>
-			<script type="text/javascript" src="js/pdf.js"></script>
-			<script type="text/javascript" src="js/pdf.worker.js"></script>
-			<script>
-				// PDFJS.disableStream = true;
-				$("#export").attr("disabled", "disabled"); //禁用导出图片按钮
-				var pdfFile;
-				$('#pdf').change(function() {
-					var pdfFileURL = $('#pdf').val();
-					if(pdfFileURL) {
-						$("#imgDiv").empty();//清空上一PDF文件展示图
-						var files = $('#pdf').prop('files'); //获取到文件
-						var fileSize = files[0].size;
-						var mb;
-						if(fileSize) {
-							mb = fileSize / 1048576;
-							if(mb > 10) {
-								alert("文件大小不能>10M");
-								return;
-							}
+		<div id="imgDiv"></div>
+		<script type="text/javascript" src="js/jszip.min.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/FileSaver.js"></script>
+		<script type="text/javascript" src="js/pdf.js"></script>
+		<script type="text/javascript" src="js/pdf.worker.js"></script>
+		<script>
+			// PDFJS.disableStream = true;
+			$("#export").attr("disabled", "disabled"); //禁用导出图片按钮
+			var pdfFile;
+			$('#pdf').change(function() {
+				var pdfFileURL = $('#pdf').val();
+				if (pdfFileURL) {
+					$("#imgDiv").empty(); //清空上一PDF文件展示图
+					var files = $('#pdf').prop('files'); //获取到文件
+					var fileSize = files[0].size;
+					var mb;
+					if (fileSize) {
+						mb = fileSize / 1048576;
+						if (mb > 10) {
+							alert("文件大小不能>10M");
+							return;
 						}
+					}
 
-						$("#export").removeAttr("disabled", "disabled");
-						$("#pdfName").text(files[0].name).attr("title",files[0].name);
-						$("#sizeText").text(mb.toFixed(2) + "Mb");
+					$("#export").removeAttr("disabled", "disabled");
+					$("#pdfName").text(files[0].name).attr("title", files[0].name);
+					$("#sizeText").text(mb.toFixed(2) + "Mb");
 
-						/*pdf.js无法直接打开本地文件,所以利用FileReader转换*/
-						var reader = new FileReader();
-						reader.readAsArrayBuffer(files[0]);
-						reader.onload = function(e) {
-							var myData = new Uint8Array(e.target.result)
-							var docInitParams = {
-								data: myData
-							};
-							var typedarray = new Uint8Array(this.result);
-							PDFJS.cMapUrl = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/';
-							PDFJS.cMapPacked = true;
-							PDFJS.getDocument(typedarray).then(function(pdf) { //PDF转换为canvas
-								$("#imgDiv").css("border", "0"); //清除文本、边框
-								if(pdf) {
-									var pageNum = pdf.numPages;
-									$("#pagesText").text(pageNum);
+					/*pdf.js无法直接打开本地文件,所以利用FileReader转换*/
+					var reader = new FileReader();
+					reader.readAsArrayBuffer(files[0]);
+					reader.onload = function(e) {
+						var myData = new Uint8Array(e.target.result)
+						var docInitParams = {
+							data: myData
+						};
+						var typedarray = new Uint8Array(this.result);
+						PDFJS.cMapUrl = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/';
+						PDFJS.cMapPacked = true;
+						PDFJS.getDocument(typedarray).then(function(pdf) { //PDF转换为canvas
+							$("#imgDiv").css("border", "0"); //清除文本、边框
+							if (pdf) {
+								var pageNum = pdf.numPages;
+								$("#pagesText").text(pageNum);
 
-									for(var i = 1; i <= pageNum; i++) {
-										var canvas = document.createElement('canvas');
-										canvas.id = "pageNum" + i;
-										$("#imgDiv").append(canvas);
-										var context = canvas.getContext('2d');
-										openPage(pdf, i, context);
-									}
+								for (var i = 1; i <= pageNum; i++) {
+									var canvas = document.createElement('canvas');
+									canvas.id = "pageNum" + i;
+									$("#imgDiv").append(canvas);
+									var context = canvas.getContext('2d');
+									openPage(pdf, i, context);
 								}
-							});
-						};
-					}
-				});
-
-				function openPage(pdfFile, pageNumber, context) {
-					var scale = 2;
-					pdfFile.getPage(pageNumber).then(function(page) {
-						viewport = page.getViewport(scale); // reference canvas via context
-						var canvas = context.canvas;
-						canvas.width = viewport.width;
-						canvas.height = viewport.height;
-						canvas.style.width = "100%";
-						canvas.style.height = "100%";
-						var renderContext = {
-							canvasContext: context,
-							viewport: viewport
-						};
-						page.render(renderContext);
-					});
-					return;
-				};
-
-				//dataURL转成Blob
-				function dataURLtoBlob(dataurl) {
-					var arr = dataurl.split(','),
-						mime = arr[0].match(/:(.*?);/)[1],
-						bstr = atob(arr[1]),
-						n = bstr.length,
-						u8arr = new Uint8Array(n);
-					while(n--) {
-						u8arr[n] = bstr.charCodeAt(n);
-					}
-					return new Blob([u8arr], {
-						type: mime
-					});
+							}
+						});
+					};
 				}
-				//导出图片
-				$("#export").click(function() {
+			});
+
+			function openPage(pdfFile, pageNumber, context) {
+				var scale = 2;
+				pdfFile.getPage(pageNumber).then(function(page) {
+					viewport = page.getViewport(scale); // reference canvas via context
+					var canvas = context.canvas;
+					canvas.width = viewport.width;
+					canvas.height = viewport.height;
+					canvas.style.width = "100%";
+					canvas.style.height = "100%";
+					var renderContext = {
+						canvasContext: context,
+						viewport: viewport
+					};
+					page.render(renderContext);
+				});
+				return;
+			};
+
+			//dataURL转成Blob
+			function dataURLtoBlob(dataurl) {
+				var arr = dataurl.split(','),
+					mime = arr[0].match(/:(.*?);/)[1],
+					bstr = atob(arr[1]),
+					n = bstr.length,
+					u8arr = new Uint8Array(n);
+				while (n--) {
+					u8arr[n] = bstr.charCodeAt(n);
+				}
+				return new Blob([u8arr], {
+					type: mime
+				});
+			}
+			//导出图片
+			$("#export").click(function() {
+				if ($("#allInOnPicture").prop("checked")) { //导出为一张整图
+					var height = 0,
+						context, mainCanvas, b = 2; //b：整图缩放倍数
+					var count = $("canvas").length;
+					$("canvas").each(function(index, ele) {
+						var canvas = document.getElementById("pageNum" + (index + 1));
+						if (canvas) {
+							if (index == 0) {
+								mainCanvas = document.createElement('canvas');
+								context = mainCanvas.getContext('2d');
+								mainCanvas.width = canvas.width / b;
+								mainCanvas.height = canvas.height / b * count;
+								context.drawImage(canvas, 0, 0, canvas.width / b, canvas.height / b);
+							} else {
+								context.drawImage(canvas, 0, height, canvas.width / b, canvas.height / b);
+							}
+							height += canvas.height / b;
+						}
+					})
+					if (mainCanvas) {
+						var oA = document.createElement("a");
+						oA.download = '';
+						oA.href = mainCanvas.toDataURL();
+						document.body.appendChild(oA);
+						oA.click();
+						oA.remove();
+					}
+
+				} else {
 					var zip = new JSZip();
 					var images = zip.folder("images");
 					$("canvas").each(function(index, ele) {
@@ -176,8 +209,9 @@
 					}).then(function(content) {
 						saveAs(content, "pdftoimages.zip");
 					});
-				});
-			</script>
+				}
+			});
+		</script>
 	</body>
 
 </html>
