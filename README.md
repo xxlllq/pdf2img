@@ -23,7 +23,7 @@
 ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/chrome.png)  |  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/firefox.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/safari.png)|  ![](https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/ie.png)
 |latest|latest|latest|10+|　　
  
-* PDF JS版本2.8.335浏览器支持
+* PDF JS版本2.8.335浏览器支持-20210719
 
 由于pdfjs版本2.8.335中js引入了可选链操作符【?.，??】等，请访问参考下图查看自己的浏览器是否支持。
 <kbd>
