@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<script>
 		var _hmt = _hmt || [];
@@ -81,11 +81,10 @@
 		<script type="text/javascript" src="js/jszip.min.js"></script>
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/FileSaver.js"></script>
-		<script type="text/javascript" src="js/pdf.js"></script>
-		<script type="text/javascript" src="js/pdf.worker.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/pdf.js/2.8.335/pdf.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/pdf.js/2.8.335/pdf.worker.min.js"></script>
 		<script>
 			// PDFJS.disableStream = true;
-			 * 由于pdfjs版本2.8.335中js引入了可选链操作符【?.，??】等，请访问https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining查看自己的浏览器是否支持。
 			$("#export").attr("disabled", "disabled"); //禁用导出图片按钮
 			var pdfFile;
 			$('#pdf').change(function() {
@@ -116,9 +115,9 @@
 							data: myData
 						};
 						var typedarray = new Uint8Array(this.result);
-						PDFJS.cMapUrl = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/';
-						PDFJS.cMapPacked = true;
-						PDFJS.getDocument(typedarray).then(function(pdf) { //PDF转换为canvas
+						pdfjsLib.cMapUrl = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/';
+						pdfjsLib.cMapPacked = true;
+						pdfjsLib.getDocument(typedarray).promise.then(function(pdf) { //PDF转换为canvas
 							$("#imgDiv").css("border", "0"); //清除文本、边框
 							if (pdf) {
 								window.pageNum = pdf.numPages;
@@ -136,11 +135,12 @@
 					};
 				}
 			});
-
 			function openPage(pdfFile, pageNumber, context) {
 				var scale = 2;
 				pdfFile.getPage(pageNumber).then(function(page) {
-					viewport = page.getViewport(scale); // reference canvas via context
+					viewport = page.getViewport({
+						scale: scale
+					}); // reference canvas via context
 					var canvas = context.canvas;
 					canvas.width = viewport.width;
 					canvas.height = viewport.height;
@@ -153,6 +153,7 @@
 						canvasContext: context,
 						viewport: viewport
 					};
+
 					page.render(renderContext);
 				});
 				return;
