@@ -28,6 +28,6 @@
 由于pdfjs版本2.8.335中js引入了可选链操作符【?.，??】等，请访问参考下图查看自己的浏览器是否支持。
 <kbd>
   <div style="border: 1px solid gainsboro;border-radius: 5px;" align="center">
-    <img width="80%" height="auto" src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/version-2.8.335-support.png" alt="PDF To Image" title="PDF To Image"/>
+    <img width="100%" height="auto" src="https://raw.githubusercontent.com/xxlllq/pdf2img/master/img/version-2.8.335-support.png" alt="PDF To Image" title="PDF To Image"/>
   </div>
 </kbd>
