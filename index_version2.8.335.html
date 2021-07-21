@@ -124,41 +124,48 @@
 							if (pdf) {
 								window.pageNum = pdf.numPages;
 								$("#pagesText").text(pageNum);
-
-								for (var i = 1; i <= pageNum; i++) {
-									var canvas = document.createElement('canvas');
-									canvas.id = "pageNum" + i;
-									$("#imgDiv").append(canvas);
-									var context = canvas.getContext('2d');
-									openPage(pdf, i, context);
-								}
+								openPage(pdf, 1);
 							}
 						});
 					};
 				}
 			});
-			function openPage(pdfFile, pageNumber, context) {
-				var scale = 2;
-				pdfFile.getPage(pageNumber).then(function(page) {
-					viewport = page.getViewport({
-						scale: scale
-					}); // reference canvas via context
-					var canvas = context.canvas;
-					canvas.width = viewport.width;
-					canvas.height = viewport.height;
-					// 记录当前canvas的width，height
-					window.wi = canvas.width;
-					window.he = canvas.height;
-					canvas.style.width = "100%";
-					canvas.style.height = "100%";
-					var renderContext = {
-						canvasContext: context,
-						viewport: viewport
-					};
 
-					page.render(renderContext);
-				});
-				return;
+			function openPage(pdfFile, pageNumber, callback) {
+				try {
+					var scale = 2;
+					pdfFile.getPage(pageNumber).then(function(page) {
+						var canvas = document.createElement('canvas');
+						canvas.id = "pageNum" + pageNumber;
+						var context = canvas.getContext('2d');
+						viewport = page.getViewport({
+							scale: scale
+						}); // reference canvas via context
+						var canvas = context.canvas;
+						canvas.width = viewport.width;
+						canvas.height = viewport.height;
+						// 记录当前canvas的width，height
+						window.wi = canvas.width;
+						window.he = canvas.height;
+						canvas.style.width = "100%";
+						canvas.style.height = "100%";
+						var renderContext = {
+							canvasContext: context,
+							viewport: viewport
+						};
+						page.render(renderContext).promise.then(function() {
+							$("#imgDiv").append(canvas);
+							if (window.pageNum > pageNumber) {
+								openPage(pdfFile, pageNumber + 1);
+							}else if (window.pageNum == pageNumber) {
+								console.info("Complete");
+							}
+						});
+					});
+				} catch (e) {
+					console.info(e);
+				}
+
 			};
 
 			//dataURL转成Blob
