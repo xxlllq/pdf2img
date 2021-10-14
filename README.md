@@ -22,11 +22,11 @@
       var scale = 2;
       ```
     + 如果转换图片未显示电子签章，将项目引入的`pdf.worker.js`请通过关键字搜索后，注释下面代码。[**#3**](../../issues/3)
-     ```javascript
+      ```javascript
       if (data.fieldType === 'Sig') {
-        //_this2.setFlags(_util.AnnotationFlag.HIDDEN);
+          //_this2.setFlags(_util.AnnotationFlag.HIDDEN);
       }
-     ```
+      ```
     + 如果转换后图片部分文字显示不完整，请查看解决方案：[**#1**](../../issues/1)
     + 项目中使用了[pdf.js](http://mozilla.github.io/pdf.js/)、[FileSaver.js](https://github.com/eligrey/FileSaver.js/)
 
