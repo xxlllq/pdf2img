@@ -15,7 +15,6 @@
 		window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'UA-118964508-1');
 </script>
 	<head>
@@ -25,9 +24,7 @@
 		<title>Convert PDF To Image</title>
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/mian.css" />
-
 	</head>
-
 	<body>
 		<div class="frame">
 			<div class="center">
@@ -39,7 +36,6 @@
 							<img src="img/James Kobe.png" width="70" height="70" alt="">
 						</div>
 					</a>
-
 					<div class="name">PDF转图片</div>
 					<div class="job">
 						文档大小
@@ -53,7 +49,6 @@
 								 frameborder="0" scrolling="0" width="170px" height="30px"></iframe></a>
 					</div>
 				</div>
-
 				<div class="stats">
 					<div class="box">
 						<span class="value">名称</span>
@@ -67,15 +62,19 @@
 						<span class="value">页数</span>
 						<span class="parameter" id="pagesText"></span>
 					</div>
-					<div class="box">
+					<div class="box allPage">
 						<span class="value all">导出整图</span>
 						<input type="checkbox" id="allInOnPicture" />
 						<span class="value all small">少于20张效果较好</span>
 					</div>
+					<div class="box pageChoose">
+						<span class="value all">页码选择</span>
+						<input type="number" id="pageChooseStart" placeholder="开始页码"/>
+						<input type="number" id="pageChooseEnd" placeholder="结束页码"/>
+					</div>
 				</div>
 			</div>
 		</div>
-
 		<div id="imgDiv">
 		</div>
 		<script type="text/javascript" src="js/jszip.min.js"></script>
@@ -177,9 +176,9 @@
 				if ($("#allInOnPicture").prop("checked")) { //导出为一张整图 
 					var height = 0,
 						context, mainCanvas, b = 2; //b：整图缩放倍数
-					var count = $("canvas").length;
+					var count = $("canvas").length; 
 					$("canvas").each(function(index, ele) {
-						var canvas = document.getElementById("pageNum" + (index + 1));
+						var canvas = document.getElementById("pageNum" + (index+1));
 						if (canvas) {
 							if (index == 0) {
 								mainCanvas = document.createElement('canvas');
@@ -209,8 +208,14 @@
 				} else {
 					var images = zip.folder("images");
 					$("canvas").each(function(index, ele) {
-						var canvas = document.getElementById("pageNum" + (index + 1));
-						images.file("image-" + (index + 1) + ".png", dataURLtoBlob(canvas.toDataURL("image/png", 1.0)), {
+						var idx = index + 1;
+						var canvas = document.getElementById("pageNum" + idx);
+						var startIdx = $("#pageChooseStart").val(),endIdx=$("#pageChooseEnd").val();
+						if((startIdx && parseInt(startIdx) >idx) ||( endIdx && parseInt(endIdx)<idx)) {
+							return true;
+						}
+
+						images.file("image-" + idx + ".png", dataURLtoBlob(canvas.toDataURL("image/png", 1.0)), {
 							base64: true
 						});
 					})
@@ -223,5 +228,4 @@
 			});
 		</script>
 	</body>
-
 </html>
