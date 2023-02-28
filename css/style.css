@@ -1,7 +1,7 @@
 .frame {
 	position: fixed;
 	width: 340px;
-	height: 320px;
+	height: 400px;
 	border-radius: 2px;
 	box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
 	background: #CA7C4E;
@@ -18,7 +18,7 @@
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	height: 299px;
+	height: 380px;
 	width: 320px;
 	background: #fff;
 	border-radius: 3px;
@@ -215,4 +215,19 @@
 	color: #3593ff;
 	font-size: 20px;
 	font-weight: 700
+}
+
+.box.allPage{
+	padding-top: 10px;
+}
+
+.box.pageChoose{
+    padding-top: 0;
+}
+
+.box.box.pageChoose input{
+	width: 80px;
+	border-radius: 4px;
+	border: 1px solid gray;
+	outline: none;
 }
